@@ -23,7 +23,7 @@ public class DownloadStartup {
         int threadNum = ConfigUtil.getThreadNum();
         int perSize = fileSize / threadNum;
 
-        ExecutorService es = Executors.newFixedThreadPool(threadNum, new MyThreadFactory("downloader-sub-"));
+        ExecutorService es = Executors.newFixedThreadPool(threadNum+1, new MyThreadFactory("downloader-sub-"));
         int start = 0;
         int end = perSize - 1;
         Future<Boolean>[] futureArr = new Future[threadNum];
